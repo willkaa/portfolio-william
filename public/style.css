@@ -585,7 +585,8 @@ h2 {
   padding-bottom: 0;
 }
 .exp-row small,
-.about > small {
+.about > small,
+.school-entry > small {
   font: 11px/1.7 var(--mono);
   color: #516853;
 }
