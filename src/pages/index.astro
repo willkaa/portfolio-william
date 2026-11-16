@@ -1,0 +1,234 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Icon from "../components/Icon.astro";
+import { projects } from "../data/projects";
+import { hardSkills, softSkills } from "../data/skills";
+---
+
+<Layout title="Portfolio" home>
+  <main id="main">
+    <section class="wrap hero" aria-labelledby="name">
+      <div class="hero-copy">
+        <div class="available">
+          <i></i>Open to internships
+        </div>
+        <h1 id="name">
+          William Eka <br />
+          <em>
+            {" "}
+            Saputra<span>.</span>
+          </em>
+        </h1>
+        <p class="role">
+          Aspiring Data Analyst <span>/</span> Information Systems
+        </p>
+        <p class="intro">
+          Hi, I am William Eka Saputra, an Information Systems student at Universitas Multimedia
+          Nusantara with a strong interest in Data Analytics and Data Science. I am passionate about
+          using data and technology to solve problems, uncover meaningful insights, and support
+          better decision-making. With a foundation in Python, MySQL, Microsoft Excel, and ERP, I am
+          eager to gain practical experience, contribute to meaningful projects, and learn from
+          professionals in the data and technology fields.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">
+            Explore projects
+            <Icon name="down" />
+          </a>
+          <a class="btn secondary" href="assets/William-Eka-Saputra-CV.pdf" download>
+            Download CV
+            <Icon name="download" />
+          </a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <div class="photo-shell">
+          <img
+            src="assets/william.jpeg"
+            fetchpriority="high"
+            width="1418"
+            height="1600"
+            alt="William Eka Saputra wearing his Universitas Multimedia Nusantara blazer"
+          />
+        </div>
+        <figcaption>
+          <span>
+            <Icon name="pin" />
+            Tangerang, Indonesia
+          </span>
+        </figcaption>
+      </figure>
+    </section>
+    <div class="wrap facts">
+      <div>
+        <b>
+          3.88<span>/4.00</span>
+        </b>
+        <small>Cumulative GPA</small>
+      </div>
+      <div>
+        <b>{projects.length}</b>
+        <small>Academic projects</small>
+      </div>
+      <div>
+        <b>UMN</b>
+        <small>Information Systems</small>
+      </div>
+    </div>
+    <section class="wrap section work" id="projects">
+      <div class="section-line">
+        <h2>
+          Projects<span>.</span>
+        </h2>
+      </div>
+      <div class="cards">
+        {projects.map((project) => (
+          <ProjectCard project={project} />
+        ))}
+      </div>
+    </section>
+    <section id="experience" class="exp">
+      <div class="wrap split section">
+        <div>
+          <h2>
+            Experience<span>.</span>
+          </h2>
+        </div>
+        <div>
+          <article class="exp-row">
+            <small>Jun – Jul 2026</small>
+            <div>
+              <h3>F&B Cashier</h3>
+              <b>Jakarta International Expo</b>
+              <p>
+                I processed payments throughout the 32-day Jakarta Fair Kemayoran and coordinated
+                with teammates to keep queues moving during busy shifts.
+              </p>
+            </div>
+          </article>
+          <article class="exp-row">
+            <small>Feb – May 2026</small>
+            <div>
+              <h3>Applied ERP Laboratory Assistant</h3>
+              <b>Universitas Multimedia Nusantara</b>
+              <p>
+                I helped students work through purchasing, sales, and accounting exercises in SAP
+                S/4HANA. I also prepared lab materials and helped troubleshoot issues during
+                practical sessions.
+              </p>
+            </div>
+          </article>
+          <article class="exp-row">
+            <small>Jun – Sep 2025</small>
+            <div>
+              <h3>Person in Charge (PIC) for the Information Systems Study Program Orientation</h3>
+              <b>Sandhyakala · HIMSI UMN</b>
+              <p>
+                I guided incoming Information Systems students through orientation, coordinated
+                group activities, and introduced students to the programme and campus.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section id="about" class="wrap section split">
+      <div>
+        <h2>
+          About me<span>.</span>
+        </h2>
+      </div>
+      <div class="about">
+        <h3>Bachelor of Information Systems, Universitas Multimedia Nusantara</h3>
+        <small>August 2024 – April 2028 (expected)</small>
+        <p>
+          I’m interested in how people use data to make everyday decisions. Building a retail
+          forecast taught me to look for patterns across weeks. In the ERP lab, I saw how a purchase
+          or sale becomes a record that other teams rely on.
+        </p>
+        <article class="school-entry">
+          <h3>SMA Tunas Mulia Senior High School</h3>
+          <p class="school-track">Natural Sciences (IPA)</p>
+          <ul class="school-activities">
+            <li>Student Council (OSIS) member in the Information and Technology division.</li>
+            <li>Participated in basketball extracurricular activities.</li>
+          </ul>
+        </article>
+        <details>
+          <summary>Training & activities</summary>
+          <ul>
+            <li>
+              DQLab · Introduction to Data Analytics, an Excel case-study bootcamp for data
+              analysts, and a certification preparation programme in Machine Learning & AI.
+            </li>
+            <li>L’Oréal Brandstorm 2026 · Certificate of Recognition for participation.</li>
+          </ul>
+        </details>
+      </div>
+    </section>
+    <section id="skills" class="skills-section">
+      <div class="wrap section">
+        <h2>
+          Skills<span>.</span>
+        </h2>
+        <div class="skill-columns">
+          <article class="skill-panel">
+            <h3>Hard skills</h3>
+            <dl class="hard-skill-list">
+              {hardSkills.map((group) => (
+                <div>
+                  <dt>{group.category}</dt>
+                  <dd>
+                    {group.skills.join(", ")}
+                    {group.detail && <small>{group.detail}</small>}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </article>
+          <article class="skill-panel">
+            <h3>Soft skills</h3>
+            <ul class="soft-skill-list">
+              {softSkills.map((skill) => (
+                <li>{skill}</li>
+              ))}
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <div class="wrap contact-inner">
+        <div>
+          <div class="eyebrow">Contact</div>
+          <h2>
+            Get in touch<span>.</span>
+          </h2>
+          <p>
+            I’m looking for a data analytics internship. You can reach me by email or on LinkedIn.
+          </p>
+        </div>
+        <div class="contact-links">
+          <a
+            href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=wlmekas15@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="mail" />
+            wlmekas15@gmail.com
+            <Icon name="up" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/william-eka-saputra-2a5b46324"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+            <Icon name="up" />
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import type { Project } from "../data/projects";
+import ProjectVisual from "./ProjectVisual.astro";
+import Icon from "./Icon.astro";
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+---
+
+<article class="card">
+  <a class="card-link" href={project.slug + ".html"}>
+    <ProjectVisual project={project} />
+    <div class="card-copy">
+      <small class="eyebrow">{project.kind}</small>
+      <h3>{project.title}</h3>
+      <p>{project.blurb}</p>
+      <ul class="tags">
+        {project.tags.map((tag) => (
+          <li>{tag}</li>
+        ))}
+      </ul>
+      <span class="read">
+        Read case study
+        <Icon name="up" />
+      </span>
+    </div>
+  </a>
+  <div class="card-actions">
+    <a
+      class="btn secondary project-resource"
+      href={project.resource.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={project.resource.label + " for " + project.title + " (opens in a new tab)"}
+    >
+      {project.resource.label}
+      <Icon name="up" />
+    </a>
+  </div>
+</article>

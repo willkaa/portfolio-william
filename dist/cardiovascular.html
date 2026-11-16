@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" id="top">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#f8f8f1" />
+    <meta
+      name="description"
+      content="How much do blood pressure, age, and cholesterol tell us about cardiovascular disease in this dataset?"
+    />
+    <meta name="generator" content="Astro v7.4.12" />
+    <title>Cardiovascular Data Modelling · William Eka Saputra</title>
+    <link rel="icon" href="assets/mark.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip" href="#main"> Skip to content </a>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="index.html"> William Eka Saputra </a>
+        <nav id="nav">
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a class="nav-contact" href="index.html#contact">
+            Contact me
+            <svg
+              class="icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 18 18 6M7 6h11v11"></path>
+            </svg>
+          </a>
+        </nav>
+        <button class="menu" aria-controls="nav" aria-expanded="false" aria-label="Open navigation">
+          <svg
+            class="icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.65"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M3 7h18M3 12h18M3 17h18"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main" class="wrap detail">
+      <a class="back" href="index.html#projects">
+        <svg
+          class="icon"
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.65"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M20 12H5m6-6-6 6 6 6"></path>
+        </svg>
+        All projects
+      </a>
+      <div class="eyebrow line">Data science</div>
+      <h1>
+        Cardiovascular Data Modelling
+        <em>.</em>
+      </h1>
+      <p class="standfirst">
+        How much do blood pressure, age, and cholesterol tell us about cardiovascular disease in
+        this dataset?
+      </p>
+      <div class="case-grid">
+        <aside>
+          <figure class="project-preview">
+            <a
+              href="assets/cardiovascular-preview.png"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View full screenshot of Cardiovascular Data Modelling (opens in a new tab)"
+            >
+              <div class="visual screenshot">
+                <img
+                  src="assets/cardiovascular-preview.png"
+                  alt="Cardiovascular Streamlit application showing health inputs and prediction tabs"
+                  width="1822"
+                  height="770"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </a>
+            <figcaption>
+              <a href="assets/cardiovascular-preview.png" target="_blank" rel="noopener noreferrer">
+                View full picture
+                <svg
+                  class="icon"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.65"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 18 18 6M7 6h11v11"></path>
+                </svg>
+              </a>
+            </figcaption>
+          </figure>
+          <a
+            class="btn primary project-resource"
+            href="https://cardio-app-app-kxtuw4wns3hfmswbjmnfc5.streamlit.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Demo for Cardiovascular Data Modelling (opens in a new tab)"
+          >
+            View Demo
+            <svg
+              class="icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.65"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 18 18 6M7 6h11v11"></path>
+            </svg>
+          </a>
+          <h3>Project context</h3>
+          <p>Data Modelling · Team of three</p>
+          <ul class="tags">
+            <li>Python</li>
+            <li>scikit-learn</li>
+            <li>Streamlit</li>
+          </ul>
+        </aside>
+        <div class="case-body">
+          <section>
+            <h2>Research question</h2>
+            <p>
+              Our team investigated two questions. Which measurements help a model distinguish
+              patients with and without cardiovascular disease, and how closely can a regression
+              model estimate systolic blood pressure?
+            </p>
+          </section>
+          <section>
+            <h2>My contribution</h2>
+            <p>
+              I compared logistic regression, gradient boosting, Gaussian naive Bayes, and a neural
+              network. I evaluated the classifiers, measured how accuracy changed when groups of
+              features were removed, and helped prepare the Streamlit application.
+            </p>
+          </section>
+          <section>
+            <h2>Methods and findings</h2>
+            <p>
+              After removing duplicates and filtering implausible measurements, we retained 68,475
+              of 70,000 records. With a stratified 80/20 train–test split, gradient boosting
+              achieved 73.76% test accuracy and an F1 score of 0.7205. Using just systolic blood
+              pressure, age, and cholesterol yielded 73.18% accuracy. Removing all blood pressure
+              features lowered it to 64.89%.
+            </p>
+          </section>
+          <section>
+            <h2>Team deliverable</h2>
+            <p>
+              Our Streamlit prototype displays predictions, evaluation metrics, and feature
+              importance. For the separate regression task, the team’s model estimated systolic
+              blood pressure with a mean absolute error of 7.20 mmHg on the test data. These results
+              describe performance on this academic dataset.
+            </p>
+          </section>
+        </div>
+      </div>
+      <div class="next">
+        <a href="index.html#projects">
+          <svg
+            class="icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.65"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M20 12H5m6-6-6 6 6 6"></path>
+          </svg>
+          All projects
+        </a>
+        <a href="digishelf-desktop.html">
+          DigiShelf Desktop
+          <svg
+            class="icon"
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.65"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 12h15m-6-6 6 6-6 6"></path>
+          </svg>
+        </a>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <span>© 2026 William Eka Saputra</span>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+    <script type="module">
+      // src/layouts/Layout.astro?astro&type=script&index=0&lang.ts
+      var button = document.querySelector(".menu");
+      var nav = document.querySelector("#nav");
+      function setMenu(open) {
+        nav.classList.toggle("open", open);
+        button.setAttribute("aria-expanded", String(open));
+        button.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      }
+      button.addEventListener("click", () => setMenu(!nav.classList.contains("open")));
+      nav.addEventListener("click", () => setMenu(false));
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && nav.classList.contains("open")) {
+          setMenu(false);
+          button.focus();
+        }
+      });
+    </script>
+  </body>
+</html>

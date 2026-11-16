@@ -1,0 +1,86 @@
+---
+import type { Project } from "../data/projects";
+interface Props {
+  project: Project;
+}
+const { project } = Astro.props;
+const { slug, screenshot } = project;
+---
+
+{screenshot ? (
+  <div class="visual screenshot">
+    <img
+      src={screenshot.src}
+      alt={screenshot.alt}
+      width={screenshot.width}
+      height={screenshot.height}
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+) : (
+  <>
+    {slug === "digishelf-java" && (
+      <div class="visual java">
+        <div class="terminal">
+          <small>LibrarySystem.java</small>
+          <pre>====== Welcome to DigiShelf ======
+1. Register
+2. Login
+3. Continue as Guest
+0. Exit</pre>
+        </div>
+      </div>
+    )}
+
+    {slug === "retail-forecasting" && (
+      <div class="visual retail">
+        <div class="sales-plot">
+          <small>Daily sales · USD millions</small>
+          <svg
+            role="img"
+            aria-label="Daily sales in January 2016 in millions of US dollars"
+            viewBox="0 0 400 150"
+          >
+            <g class="axes">
+              <path d="M45 23H382" />
+              <text x="38" y="27" text-anchor="end">
+                2.5
+              </text>
+              <path d="M45 73H382" />
+              <text x="38" y="77" text-anchor="end">
+                1.25
+              </text>
+              <path d="M45 123H382" />
+              <text x="38" y="127" text-anchor="end">
+                0
+              </text>
+              <text x="45" y="143">
+                1 Jan
+              </text>
+              <text x="198" y="143">
+                15 Jan
+              </text>
+              <text x="347" y="143">
+                31 Jan
+              </text>
+            </g>
+            <polygon
+              points="45,123 45.0,99.8 56.2,76.8 67.4,98.3 78.6,105.2 89.8,105.4 101.0,100.1 112.2,96.0 123.4,76.5 134.6,72.9 145.8,101.8 157.0,103.7 168.2,100.9 179.4,100.7 190.6,92.3 201.8,73.5 213.0,71.7 224.2,91.0 235.4,100.2 246.6,100.0 257.8,98.1 269.0,90.1 280.2,71.4 291.4,71.2 302.6,94.1 313.8,104.9 325.0,101.5 336.2,98.4 347.4,91.3 358.6,29.6 369.8,65.2 381.0,87.8 381,123"
+              fill="#b5cfb0"
+              opacity=".65"
+            />
+            <polyline
+              points="45.0,99.8 56.2,76.8 67.4,98.3 78.6,105.2 89.8,105.4 101.0,100.1 112.2,96.0 123.4,76.5 134.6,72.9 145.8,101.8 157.0,103.7 168.2,100.9 179.4,100.7 190.6,92.3 201.8,73.5 213.0,71.7 224.2,91.0 235.4,100.2 246.6,100.0 257.8,98.1 269.0,90.1 280.2,71.4 291.4,71.2 302.6,94.1 313.8,104.9 325.0,101.5 336.2,98.4 347.4,91.3 358.6,29.6 369.8,65.2 381.0,87.8"
+              fill="none"
+              stroke="#306c52"
+              stroke-width="2.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+    )}
+  </>
+)}

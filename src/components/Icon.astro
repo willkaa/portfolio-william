@@ -1,0 +1,31 @@
+---
+const paths = {
+  down: "M12 4v15m-6-6 6 6 6-6",
+  arrow: "M4 12h15m-6-6 6 6-6 6",
+  up: "M6 18 18 6M7 6h11v11",
+  download: "M12 3v12m-5-5 5 5 5-5M4 16v4h16v-4",
+  pin: "M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0z M14 10a2 2 0 1 1-4 0 2 2 0 0 1 4 0z",
+  mail: "M3 5h18v14H3z M3 6l9 7 9-7",
+  menu: "M3 7h18M3 12h18M3 17h18",
+  back: "M20 12H5m6-6-6 6 6 6",
+} as const;
+interface Props {
+  name: keyof typeof paths;
+}
+const { name } = Astro.props;
+---
+
+<svg
+  class="icon"
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.65"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <path d={paths[name]} />
+</svg>

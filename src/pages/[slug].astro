@@ -1,0 +1,87 @@
+---
+import { projects } from "../data/projects";
+import Layout from "../layouts/Layout.astro";
+import ProjectVisual from "../components/ProjectVisual.astro";
+import Icon from "../components/Icon.astro";
+
+export function getStaticPaths() {
+  return projects.map((project, index) => ({
+    params: { slug: project.slug },
+    props: { project, next: projects[(index + 1) % projects.length] },
+  }));
+}
+const { project, next } = Astro.props;
+---
+
+<Layout title={project.title} description={project.blurb}>
+  <main id="main" class="wrap detail">
+    <a class="back" href="index.html#projects">
+      <Icon name="back" />
+      All projects
+    </a>
+    <div class="eyebrow line">{project.kind}</div>
+    <h1>
+      {project.title}
+      <em>.</em>
+    </h1>
+    <p class="standfirst">{project.blurb}</p>
+    <div class="case-grid">
+      <aside>
+        {project.screenshot ? (
+          <figure class="project-preview">
+            <a
+              href={project.screenshot.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={"View full screenshot of " + project.title + " (opens in a new tab)"}
+            >
+              <ProjectVisual project={project} />
+            </a>
+            <figcaption>
+              <a href={project.screenshot.src} target="_blank" rel="noopener noreferrer">
+                View full screenshot <Icon name="up" />
+              </a>
+            </figcaption>
+          </figure>
+        ) : (
+          <ProjectVisual project={project} />
+        )}
+        <a
+          class="btn primary project-resource"
+          href={project.resource.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={project.resource.label + " for " + project.title + " (opens in a new tab)"}
+        >
+          {project.resource.label}
+          <Icon name="up" />
+        </a>
+        <h3>Project context</h3>
+        <p>{project.context}</p>
+        <ul class="tags">
+          {project.tags.map((tag) => (
+            <li>{tag}</li>
+          ))}
+        </ul>
+      </aside>
+      <div class="case-body">
+        {project.sections.map((section) => (
+          <section>
+            <h2>{section.title}</h2>
+            <p>{section.body}</p>
+          </section>
+        ))}
+      </div>
+    </div>
+    <div class="next">
+      <a href="index.html#projects">
+        <Icon name="back" />
+        All projects
+      </a>
+      <a href={next.slug + ".html"}>
+        {next.title}
+        <Icon name="arrow" />
+      </a>
+    </div>
+  </main>
+</Layout>
